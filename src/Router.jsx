@@ -5,6 +5,7 @@ import Shop from "./Shop";
 import Default  from "./Default";
 import Cart from "./Cart";
 import ErrorPage from "./Error";
+
 const Router = () => {
   const [jewelery, setjewelery]= useState([]);
     useEffect(()=>{
@@ -30,18 +31,22 @@ const Router = () => {
     
     {
       path: "/",
-      element: <Home />,
+      element: <Home jewelery={jewelery}/>,
       children: [
-        { index: true, element: <Default jewelery={jewelery}/> },
-        { path: "Shop", element: <Shop jewelery={jewelery}/> },
-        { path: "Cart", element: <Cart /> },
+        { index: true, element: <Default /> },
+       
         
       ],
       errorElement: <ErrorPage />,
     },
     {
-      path: "Shop/xx",
+      path: "Shop",
       element: <Shop jewelery={jewelery}/>,
+      children: [
+        { index: true, element: <Default /> },
+       
+        
+      ],
       
     },
 
