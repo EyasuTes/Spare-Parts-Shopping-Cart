@@ -8,6 +8,10 @@ import ErrorPage from "./Error";
 
 const Router = () => {
   const [jewelery, setjewelery]= useState([]);
+  const [objects, setobjects]=useState([])
+  function cartObjects(item){
+    setobjects([...objects, item])
+  }
     useEffect(()=>{
         const apiUrl = 'https://fakestoreapi.com/products/category/jewelery';
     
@@ -19,6 +23,7 @@ const Router = () => {
         return response.json();
       })
       .then(data => {
+        
         setjewelery(data)
         
       })
@@ -41,14 +46,16 @@ const Router = () => {
     },
     {
       path: "Shop",
-      element: <Shop jewelery={jewelery}/>,
-      children: [
-        { index: true, element: <Default /> },
-       
-        
-      ],
+      element: <Shop cartObjects={cartObjects} jewelery={jewelery}/>,
+      
       
     },
+    {
+      path: "Cart",
+      element: <Cart objects={objects} />,
+      
+    },
+    
 
   ]);
 

@@ -125,3 +125,39 @@ body{
     margin: 0;
     padding: 0;
 }
+.DefaultShop__item{
+    width: 300px;
+    background-color: white;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+   
+    
+}
+.DefaultShop__item img{
+    width: 300px;
+    height: 300px;
+    
+}
+.DefaultShop__item .DefaultShop__price{
+    border-bottom: 2px solid black;
+}
+.DefaultShop__input{
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    font-size: 30px;
+}
+.DefaultShop__form{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    align-items: center;
+    gap: 10px;
+    
+}
+.DefaultShop__input input{
+    width: 50px;
+    border: 2px solid black;
+}
